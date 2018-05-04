@@ -1,0 +1,17 @@
+body {
+    background-image: url('images/bloodBackground.jpg');
+    color: white;
+}
+
+.button-box {
+    background: rgba(255, 255, 255, 0.5);
+    border: black 2px solid;
+    padding: 15px;
+}
+
+.header {
+    font-family: 'Yeon Sung', cursive;
+    text-align: center;
+    font-size: 48px;
+    margin: 20px;
+}
