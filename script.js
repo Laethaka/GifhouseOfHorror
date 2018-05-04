@@ -22,11 +22,14 @@ function generateButton() {
         console.log(response);
         for (let j=0; j<10; j++) {
             var newDiv = $('<div>');
+            newDiv.addClass('horror-div inactive');
+
             var newPic = $('<img>');
             newPic.attr('src', response.data[j].images.fixed_height_still.url).addClass('horror-pic');
             newDiv.append(newPic);
+
             var newRating = $('<p>');
-            newRating.text(`Rating: ${response.data[j].rating}`);
+            newRating.text(`Rating: ` + response.data[j].rating.toUpperCase());
             newDiv.append(newRating);
 
 
@@ -34,6 +37,11 @@ function generateButton() {
         }
     });
 };
+
+//MOUSEOVER EVENTS
+$('.horror-pic').on('mouseenter', event => {
+
+})
 
 
 //INITIALIZING BUTTON FIELD

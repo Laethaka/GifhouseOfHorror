@@ -5,8 +5,9 @@ body {
 
 .button-box {
     background: rgba(255, 255, 255, 0.5);
-    border: black 2px solid;
+    border: red 2px solid;
     padding: 15px;
+    margin: 15px;
 }
 
 .header {
@@ -14,4 +15,22 @@ body {
     text-align: center;
     font-size: 48px;
     margin: 20px;
+}
+
+.horror-div {
+    display: inline-block;
+    margin: 10px;
+    border: red 2px solid;
+    background: rgba(255, 255, 255, 0.7);
+    padding: 15px;
+    text-align: center;
+}
+
+.horror-div p {
+    margin-top: 15px;
+    color: red;
+}
+
+.horror-pic {
+    width: 80%;
 }
