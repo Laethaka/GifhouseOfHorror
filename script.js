@@ -22,10 +22,10 @@ function generateButton() {
         console.log(response);
         for (let j=0; j<10; j++) {
             var newDiv = $('<div>');
-            newDiv.addClass('horror-div inactive');
+            newDiv.addClass('horror-div');
 
             var newPic = $('<img>');
-            newPic.attr('src', response.data[j].images.fixed_height_still.url).addClass('horror-pic');
+            newPic.attr('src', response.data[j].images.fixed_height_still.url).addClass('horror-pic').attr('stillSrc', response.data[j].images.fixed_height_still.url).attr('movingSrc', response.data[j].images.fixed_height.url).attr('status', 'inactive');
             newDiv.append(newPic);
 
             var newRating = $('<p>');
@@ -35,13 +35,39 @@ function generateButton() {
 
             $('#picField').prepend(newDiv);
         }
+
+        //MOUSEOVER ZOOM
+        $('.horror-pic').on('mouseenter', event => {
+            $(event.currentTarget).animate({width: '95%'}, 'fast')
+        }).on('mouseleave', event => {
+            $(event.currentTarget).animate({width: '80%'}, 'fast')
+        });
+
+        //CLICK EVENTS
+        $('.horror-pic').off('click');
+        $('.horror-pic').on('click', event => {
+            var status = $(event.currentTarget).attr('status')
+            if (status === 'inactive') { //CHANGING SOURCE TO ANIMATED SOURCE
+                $(event.currentTarget).attr('src', $(event.currentTarget).attr('movingSrc'));
+                $(event.currentTarget).attr('status', 'active');
+            } else {
+                $(event.currentTarget).attr('src', $(event.currentTarget).attr('stillSrc'));
+                $(event.currentTarget).attr('status', 'inactive');
+            }
+        })
+
+        // $('.horror-pic').on('click', function() {
+        //     var status = $(this).attr('status')
+        //     if (status === 'inactive') { //CHANGING SOURCE TO ANIMATED SOURCE
+        //         $(this).attr('src', $(this).attr('movingSrc'));
+        //         $(this).attr('status', 'active');
+        //     } else {
+        //         $(this).attr('src', $(this).attr('stillSrc'));
+        //         $(this).attr('status', 'inactive');
+        //     }
+        // })
     });
 };
-
-//MOUSEOVER EVENTS
-$('.horror-pic').on('mouseenter', event => {
-
-})
 
 
 //INITIALIZING BUTTON FIELD

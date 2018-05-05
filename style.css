@@ -17,6 +17,13 @@ body {
     margin: 20px;
 }
 
+.subheader {
+    font-family: 'Yeon Sung', cursive;
+    text-align: center;
+    font-size: 36px;
+    margin: 20px;
+}
+
 .horror-div {
     display: inline-block;
     margin: 10px;
@@ -33,4 +40,8 @@ body {
 
 .horror-pic {
     width: 80%;
+}
+
+.movie-button {
+    margin: 5px;
 }
