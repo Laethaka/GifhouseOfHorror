@@ -1,4 +1,4 @@
-var movies = ['The Shining', 'The Texas Chainsaw Massacre', 'The Babadook', 'American Psycho', 'A Nightmare on Elm Street', 'Scream', 'The Evil Dead', 'Alien', 'The Witch', 'The Cabin in the Woods', 'Hellraiser']
+var movies = ['The Shining', 'The Texas Chainsaw Massacre', 'The Babadook', 'American Psycho', 'A Nightmare on Elm Street', 'Scream', 'The Evil Dead', 'The Cabin in the Woods', 'Hellraiser']
 
 //BUTTON CREATION FUNCTION
 function renderButtons() {
@@ -55,19 +55,17 @@ function generateButton() {
                 $(event.currentTarget).attr('status', 'inactive');
             }
         })
-
-        // $('.horror-pic').on('click', function() {
-        //     var status = $(this).attr('status')
-        //     if (status === 'inactive') { //CHANGING SOURCE TO ANIMATED SOURCE
-        //         $(this).attr('src', $(this).attr('movingSrc'));
-        //         $(this).attr('status', 'active');
-        //     } else {
-        //         $(this).attr('src', $(this).attr('stillSrc'));
-        //         $(this).attr('status', 'inactive');
-        //     }
-        // })
     });
 };
+
+//MOVIE ADDER BUTTON
+$("#movieAdder").on("click", function(event) {
+    event.preventDefault();
+    var movie = $("#movieInput").val().trim();
+    movies.push(movie);
+    $('#movieInput').val('');
+    renderButtons();
+  });
 
 
 //INITIALIZING BUTTON FIELD
